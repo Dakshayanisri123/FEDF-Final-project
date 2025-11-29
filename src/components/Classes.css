@@ -1,0 +1,25 @@
+.classes-page {
+  padding: 30px;
+  text-align: center;
+}
+
+.classes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.class-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.class-card:hover {
+  background: #eef7ff;
+  transform: translateY(-4px);
+}

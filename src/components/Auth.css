@@ -204,3 +204,34 @@
 .link-text:hover {
   text-decoration: underline;
 }
+.captcha-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  gap: 10px;
+}
+
+.captcha-text {
+  background: #f1f1f1;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 6px;
+  letter-spacing: 3px;
+  user-select: none;
+}
+
+.refresh-btn {
+  padding: 6px 10px;
+  font-size: 18px;
+  border: none;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.refresh-btn:hover {
+  background: #005ec4;
+}

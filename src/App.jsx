@@ -8,6 +8,9 @@ import FundamentalRights from "./components/FundamentalRights";
 import Quiz from "./components/Quiz";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import DetailPage from "./components/DetailPage";
+import Classes from "./components/Classes";
+import ClassDetail from "./components/ClassDetail";
 import "./App.css";
 
 export default function App() {
@@ -15,12 +18,12 @@ export default function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const stored = localStorage.getItem("user");
-    if (stored) setIsLoggedIn(true);
-    else navigate("/signin");
-  }, [navigate]);
+    const loggedFlag = localStorage.getItem("isLoggedIn");
+    setIsLoggedIn(loggedFlag === "true");
+  }, [isLoggedIn]);
 
   const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("user");
     setIsLoggedIn(false);
     navigate("/signin");
@@ -35,7 +38,7 @@ export default function App() {
           {!isLoggedIn ? (
             <>
               <Route path="/signin" element={<SignIn setIsLoggedIn={setIsLoggedIn} />} />
-              <Route path="/signup" element={<SignUp setIsLoggedIn={setIsLoggedIn} />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="*" element={<Navigate to="/signin" replace />} />
             </>
           ) : (
@@ -44,6 +47,9 @@ export default function App() {
               <Route path="/articles" element={<Articles />} />
               <Route path="/rights" element={<FundamentalRights />} />
               <Route path="/quiz" element={<Quiz />} />
+              <Route path="/detail" element={<DetailPage />} />
+              <Route path="/classes" element={<Classes />} />
+              <Route path="/class-detail" element={<ClassDetail />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </>
           )}

@@ -10,14 +10,37 @@
   z-index: 50;
 }
 
-.site-title { font-size: 1.4rem; color: #0b3d02; }
-.site-title .in { font-weight: 700; margin-left: 6px; color: #0b3d02; }
+.site-title {
+  font-size: 1.4rem;
+  color: #0b3d02;
+  font-weight: 600;
+}
+.site-title .in {
+  font-weight: 700;
+  color: #0b3d02;
+}
 
-.nav-center { display: flex; gap: 24px; align-items: center; }
-.nav-center a { color: #003366; text-decoration: none; font-weight: 600; }
-.nav-center a:hover { color: #0b3d02; }
+.nav-center {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+.nav-center a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.nav-center a:hover {
+  color: #0b3d02;
+}
 
-.nav-right { display: flex; gap: 12px; align-items: center; }
+.nav-right {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .btn-logout {
   background: #0b6623;
   color: #fff;
@@ -26,10 +49,70 @@
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  transition: 0.3s;
 }
-.btn-logout:hover { background: #0f8a2d; }
+.btn-logout:hover {
+  background: #0f8a2d;
+}
 
-/* responsive */
-@media (max-width: 820px) {
-  .nav-center { display: none; }
+/* 🔥 Mobile Menu */
+.hamburger {
+  font-size: 28px;
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: white;
+  width: 230px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: dropdown 0.25s ease;
+}
+
+.mobile-menu a {
+  color: #003366;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 600;
+}
+.mobile-menu a:hover {
+  color: #0b3d02;
+}
+
+.mobile-logout {
+  width: 100%;
+}
+
+/* 🔄 Keyframe Animation */
+@keyframes dropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive */
+@media (max-width: 850px) {
+  .nav-center,
+  .nav-right {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
 }
